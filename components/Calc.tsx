@@ -29,14 +29,13 @@ export default function Calculator() {
         const npxValues = (qx as any)[ gender == '0.1' ? 'Male' : 'Female' ].slice(Number(age) - 31).slice(0, 10)
         const factors:string[] = [ gender, sleep, smoke, diabetes, blood, cholestrol, activity ]
         const sum_factors: number = factors.reduce((a: number, b: string) => a + Number(b), 0);
-        const interestRate = 0.06;
 
         const PremiumData = npxValues.map((pj: number, index: number) => ({
             year: index + 1,
-            "(1/(1+0.06)^year": (1/(1+interestRate)) ** index+1,
-            sum_factors,
+            "(1/(1+0.06)^year": ((1/(1+0.06)) ** (index+1) ),
+            w:sum_factors,
             pj,
-            premium: plan * ((1/(1+0.05)) ** index+1 ) * ( 1 + sum_factors ) * pj * 1.04 * 1.20 * 1.18,
+            premium: plan * ((1/(1+0.06)) ** (index+1) ) * ( 1 + sum_factors ) * pj * 1.04 * 1.20 * 1.18,
             age: age + index,
         }))
         setResult(PremiumData)
