@@ -35,7 +35,7 @@ export default function Calculator() {
             "(1/(1+0.06)^year": ((1/(1+0.06)) ** (index+1) ),
             w:sum_factors,
             pj,
-            premium: plan * ((1/(1+0.06)) ** (index+1) ) * ( 1 + sum_factors ) * pj * 1.04 * 1.20 * 1.18,
+            premium: plan * ((1/(1+0.06)) ** (index+1) ) * ( 1 + sum_factors ) * pj * 1.04 * 1.20 * 1.06,
             age: age + index,
         }))
         setResult(PremiumData)
